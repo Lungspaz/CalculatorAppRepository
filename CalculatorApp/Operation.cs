@@ -15,11 +15,13 @@ namespace CalculatorApp {
             new Division(),
         };
 
+        public string operationName;
+
         public int minInputsCount;
         public int maxInputsCount;
 
         public bool IsValid(int elementsCount) {
-            if (maxInputsCount <= elementsCount && elementsCount <= minInputsCount) {
+            if (maxInputsCount >= elementsCount && elementsCount >= minInputsCount) {
                 return true;
             }
             else return false;
@@ -29,8 +31,12 @@ namespace CalculatorApp {
 
     }
 
+
+#region OperationDefinitions
+
     public class Addition : Operation {
         public Addition() {
+            operationName = "Add";
             minInputsCount = 1;
             maxInputsCount = int.MaxValue;
         }
@@ -50,6 +56,7 @@ namespace CalculatorApp {
 
     public class Subtraction : Operation {
         public Subtraction() {
+            operationName = "Subtract";
             minInputsCount = 1;
             maxInputsCount = int.MaxValue;
         }
@@ -69,6 +76,7 @@ namespace CalculatorApp {
 
     public class Multiplication : Operation {
         public Multiplication() {
+            operationName = "Multiply";
             minInputsCount = 1;
             maxInputsCount = int.MaxValue;
         }
@@ -83,6 +91,7 @@ namespace CalculatorApp {
 
     public class Division : Operation {
         public Division() {
+            operationName = "Divide";
             minInputsCount = 2;
             maxInputsCount = 2;
         }
@@ -92,5 +101,5 @@ namespace CalculatorApp {
             return numerator / denominator;
         }
     }
-
+    #endregion
 }
